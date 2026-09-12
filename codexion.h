@@ -1,0 +1,79 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   codexion.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvelonja <mvelonja@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
+/*   Updated: 2026/09/12 05:50:44 by mvelonja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CODEXION_H
+# define CODEXION_H
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdint.h>
+# include <pthread.h>
+# include <sys/time.h>
+
+typedef struct s_data
+{
+	long	number_of_coders;
+	long	time_to_burnout;
+	long	time_to_compile;
+	long	time_to_debug;
+	long	time_to_refactor;
+	long	time_of_compiles_required;
+	long	dongle_cooldown;
+	char	*scheduler;
+}	t_data;
+
+struct	s_simulation;
+
+typedef struct s_dongle
+{
+	int				is_available;
+	pthread_mutex_t	mutex;
+}	t_dongle;
+
+typedef struct s_coder
+{
+	int					id;
+	long				last_compile_start;
+	int					compile_count;
+	int					left_dongle;
+	int					right_dongle;
+	struct s_simulation	*simulation;
+	pthread_t			thread;
+}	t_coder;
+
+typedef struct s_simulation
+{
+	t_data			*data;
+	t_dongle		*dongles;
+	t_coder			*coders;
+	int				is_simulation_stopped;
+	long			simulation_start_time;
+	pthread_mutex_t	simulation_stop_mutex;
+	pthread_mutex_t	simulation_log_mutex;
+}	t_simulation;
+
+int				ft_is_integer_value(char *s);
+int				ft_strcmp(const char *s1, const char *s2);
+int				ft_is_valid_args(int ac, char **av);
+t_data			*ft_get_arg_value(char **av);
+long			ft_atoi(const char *str);
+int				ft_create_coder_threads(t_simulation *simulation);
+int				ft_join_coder_threads(t_simulation *simulation);
+void			*ft_coder_routine(void *arg);
+t_simulation	*ft_init_simulation(t_data *data);
+int				ft_init_coders(t_simulation *simulation);
+int				ft_init_dongles(t_simulation *simulation);
+int				ft_start_simulation(t_simulation **simulation, t_data *args);
+int				ft_is_simulation_stopped(t_simulation *simulation);
+int				ft_set_simulation_stopped(t_simulation *simulation);
+
+#endif
