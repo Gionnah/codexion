@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation_handler_utils.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvelonja <mvelonja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 05:47:44 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/12 05:49:14 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/14 12:46:21 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

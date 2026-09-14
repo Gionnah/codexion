@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_memory_handler.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvelonja <mvelonja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 21:46:12 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/11 22:42:02 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/14 12:46:47 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

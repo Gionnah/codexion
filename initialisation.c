@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvelonja <mvelonja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 09:59:06 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/10 17:10:45 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/14 12:46:38 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

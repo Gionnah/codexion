@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvelonja <mvelonja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:43:32 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/10 16:27:41 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/14 12:46:32 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
