@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 09:59:06 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/14 21:40:15 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 00:34:09 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,20 @@ t_simulation	*ft_init_simulation(t_data *data)
 	simulation->dongles = NULL;
 	simulation->is_simulation_stopped = 0;
 	simulation->simulation_start_time = 0;
+	if (pthread_mutex_init(&simulation->simulation_state_mutex, NULL))
+	{
+		free(simulation);
+		return (NULL);
+	}
 	if (pthread_mutex_init(&simulation->simulation_stop_mutex, NULL))
 	{
+		pthread_mutex_destroy(&simulation->simulation_state_mutex);
 		free(simulation);
 		return (NULL);
 	}
 	if (pthread_mutex_init(&simulation->simulation_log_mutex, NULL))
 	{
+		pthread_mutex_destroy(&simulation->simulation_state_mutex);
 		pthread_mutex_destroy(&simulation->simulation_stop_mutex);
 		free(simulation);
 		return (NULL);

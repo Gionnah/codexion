@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 21:46:12 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/14 21:41:10 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 00:17:46 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_free_simulation(t_simulation *simulation)
     n_coder = simulation->data->number_of_coders;
 	pthread_mutex_destroy(&simulation->simulation_stop_mutex);
 	pthread_mutex_destroy(&simulation->simulation_log_mutex);
+    pthread_mutex_destroy(&simulation->simulation_state_mutex);
     free(simulation->coders);
     ft_free_dongle(simulation->dongles, n_coder);
     free(simulation->dongles);

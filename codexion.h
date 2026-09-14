@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 00:07:18 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 00:16:02 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_simulation
 	long			simulation_start_time;
 	pthread_mutex_t	simulation_stop_mutex;
 	pthread_mutex_t	simulation_log_mutex;
+	pthread_mutex_t	simulation_state_mutex;
 }	t_simulation;
 
 int				ft_is_integer_value(char *s);
