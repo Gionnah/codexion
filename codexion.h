@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/14 12:46:50 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/14 23:41:36 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_dongle
 {
 	int				is_available;
 	pthread_mutex_t	mutex;
+	pthread_cond_t	cond;
 }	t_dongle;
 
 typedef struct s_coder
@@ -62,18 +63,20 @@ typedef struct s_simulation
 }	t_simulation;
 
 int				ft_is_integer_value(char *s);
-int				ft_strcmp(const char *s1, const char *s2);
 int				ft_is_valid_args(int ac, char **av);
-t_data			*ft_get_arg_value(char **av);
+int				ft_is_simulation_stopped(t_simulation *simulation);
 long			ft_atoi(const char *str);
-int				ft_create_coder_threads(t_simulation *simulation);
-int				ft_join_coder_threads(t_simulation *simulation);
-void			*ft_coder_routine(void *arg);
+int				ft_strcmp(const char *s1, const char *s2);
+t_data			*ft_get_arg_value(char **av);
+int				ft_set_simulation_stopped(t_simulation *simulation);
 t_simulation	*ft_init_simulation(t_data *data);
 int				ft_init_coders(t_simulation *simulation);
 int				ft_init_dongles(t_simulation *simulation);
 int				ft_start_simulation(t_simulation **simulation, t_data *args);
-int				ft_is_simulation_stopped(t_simulation *simulation);
-int				ft_set_simulation_stopped(t_simulation *simulation);
+int				ft_create_coder_threads(t_simulation *simulation);
+int				ft_join_coder_threads(t_simulation *simulation);
+void			*ft_coder_routine(void *arg);
+void			ft_release_dongle(t_coder *coder);
+void			ft_acquire_dongle(t_coder *coder);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 09:59:06 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/14 12:46:38 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/14 21:40:15 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ int	ft_init_dongles(t_simulation *simulation)
 		simulation->dongles[iterator].is_available = 1;
 		if (pthread_mutex_init(&simulation->dongles[iterator].mutex, NULL))
 			return (1);
+		if (pthread_cond_init(&simulation->dongles[iterator].cond, NULL))
+		{
+			pthread_mutex_destroy(&simulation->dongles[iterator].mutex);
+			return (1);
+		}
 		iterator++;
 	}
 	return (0);

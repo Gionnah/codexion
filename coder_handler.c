@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:46:11 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/14 12:46:55 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/14 23:46:43 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@ void	*ft_coder_routine(void *arg)
 
 	coder = (t_coder *)arg;
 	simulation = coder->simulation;
-	printf("coder %d started\n", coder->id);
-	printf("stopped = %d\n", ft_is_simulation_stopped(simulation));
+	fprintf(stderr, "coder %d started\n", coder->id);
+	ft_acquire_dongle(coder);
+	fprintf(stderr, "coder %d acquired dongle\n", coder->id);
+	fprintf(stderr, "stopped = %d\n", ft_is_simulation_stopped(simulation));
+	usleep(simulation->data->time_to_compile * 1000000);
+	ft_release_dongle(coder);
+	fprintf(stderr, "coder %d released dongle\n", coder->id);
 	return (NULL);
 }
 
