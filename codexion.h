@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 00:16:02 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 01:19:29 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ struct	s_simulation;
 typedef struct s_dongle
 {
 	int				is_available;
+	long			availability_time;
 	pthread_mutex_t	mutex;
 	pthread_cond_t	cond;
 }	t_dongle;
@@ -58,6 +59,7 @@ typedef struct s_simulation
 	t_coder			*coders;
 	int				is_simulation_stopped;
 	long			simulation_start_time;
+	pthread_t		monitor_thread;
 	pthread_mutex_t	simulation_stop_mutex;
 	pthread_mutex_t	simulation_log_mutex;
 	pthread_mutex_t	simulation_state_mutex;
@@ -65,6 +67,7 @@ typedef struct s_simulation
 
 int				ft_is_integer_value(char *s);
 int				ft_is_valid_args(int ac, char **av);
+void			*ft_monitor_routine(void *arg);
 int				ft_is_simulation_stopped(t_simulation *simulation);
 long			ft_atoi(const char *str);
 int				ft_strcmp(const char *s1, const char *s2);
@@ -83,5 +86,6 @@ void			ft_compile(t_coder *coder);
 void			ft_debug(t_coder *coder);
 void			ft_refactor(t_coder *coder);
 int				ft_all_coders_finished(t_simulation *simulation);
+long			ft_get_current_time_in_ms(void);
 
 #endif
