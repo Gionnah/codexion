@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 23:16:32 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/14 23:38:46 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/14 23:55:04 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,12 @@ void   ft_release_dongle(t_coder *coder)
 void   ft_acquire_dongle(t_coder *coder)
 {
     t_simulation    *simulation;
+    int            left_index;
+    int            right_index;
     
     simulation = coder->simulation;
+    left_index = coder->left_dongle;
+    right_index = coder->right_dongle;
     ft_lock_dongle(simulation, coder->left_dongle);    
     ft_lock_dongle(simulation, coder->right_dongle);    
 }
