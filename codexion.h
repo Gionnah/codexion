@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 12:15:30 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 13:18:01 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,14 @@ typedef struct s_data
 }	t_data;
 
 struct	s_simulation;
+typedef struct	s_queues t_queues;
 
 typedef struct s_dongle
 {
 	int				is_available;
 	long			availability_time;
+	t_queues		*queue;
+	int				queue_size;	
 	pthread_mutex_t	mutex;
 	pthread_cond_t	cond;
 }	t_dongle;
@@ -66,6 +69,15 @@ typedef struct s_simulation
 	pthread_mutex_t	simulation_state_mutex;
 }	t_simulation;
 
+typedef struct s_coder t_coder;
+
+typedef struct s_queues
+{
+	t_coder	*coder;
+	int		order;
+	long	priority;
+}	t_queues;
+
 int				ft_is_integer_value(char *s);
 int				ft_is_valid_args(int ac, char **av);
 void			*ft_monitor_routine(void *arg);
@@ -91,5 +103,9 @@ void			ft_refactor(t_coder *coder);
 int				ft_all_coders_finished(t_simulation *simulation);
 long			ft_get_current_time_in_ms(void);
 struct timespec	ft_get_timeout(long availability_time);
+int				ft_request_before(t_queues *a, t_queues *b);
+void			ft_heap_push(t_dongle *dongle, t_queues request);
+void			ft_heap_pop(t_dongle *dongle);
+t_queues		*ft_heap_peek(t_dongle *dongle);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 09:59:06 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 12:34:10 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 13:11:54 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,21 @@ int	ft_init_coders(t_simulation *simulation)
 int	ft_init_dongles(t_simulation *simulation)
 {
 	int	iterator;
-	int	n_coders;
+	int	n_cdr;
 
 	iterator = 0;
-	n_coders = simulation->data->number_of_coders;
-	simulation->dongles = malloc(sizeof(t_dongle) * n_coders);
+	n_cdr = simulation->data->number_of_coders;
+	simulation->dongles = malloc(sizeof(t_dongle) * n_cdr);
 	if (!simulation->dongles)
 		return (1);
-	while (iterator < n_coders)
+	while (iterator < n_cdr)
 	{
 		simulation->dongles[iterator].is_available = 1;
 		simulation->dongles[iterator].availability_time = 0;
+		simulation->dongles[iterator].queue = malloc(sizeof(t_queues) * n_cdr);
+		if (!simulation->dongles[iterator].queue)
+			return (1);
+		simulation->dongles[iterator].queue_size = 0;
 		if (pthread_mutex_init(&simulation->dongles[iterator].mutex, NULL))
 			return (1);
 		if (pthread_cond_init(&simulation->dongles[iterator].cond, NULL))

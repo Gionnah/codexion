@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 21:46:12 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 12:30:19 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 13:15:38 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void    ft_free_dongle(t_dongle *dongle, int n_coder)
     i = 0;
     while (i < n_coder)
     {
+        free(dongle[i].queue);
 		pthread_mutex_destroy(&dongle[i].mutex);
 		pthread_cond_destroy(&dongle[i].cond);
         i++;
