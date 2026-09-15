@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 21:48:29 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/14 12:46:43 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 12:30:27 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 # include "codexion.h"
 
 void	ft_free_simulation(t_simulation *simulation);
+void    *ft_free_simulation_issues(t_simulation **simulation);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 01:19:29 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 12:15:30 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdint.h>
 # include <pthread.h>
 # include <sys/time.h>
+# include <time.h>
 
 typedef struct s_data
 {
@@ -71,6 +72,8 @@ void			*ft_monitor_routine(void *arg);
 int				ft_is_simulation_stopped(t_simulation *simulation);
 long			ft_atoi(const char *str);
 int				ft_strcmp(const char *s1, const char *s2);
+int				ft_get_max(int a, int b);
+int				ft_get_min(int a, int b);
 t_data			*ft_get_arg_value(char **av);
 int				ft_set_simulation_stopped(t_simulation *simulation);
 t_simulation	*ft_init_simulation(t_data *data);
@@ -87,5 +90,6 @@ void			ft_debug(t_coder *coder);
 void			ft_refactor(t_coder *coder);
 int				ft_all_coders_finished(t_simulation *simulation);
 long			ft_get_current_time_in_ms(void);
+struct timespec	ft_get_timeout(long availability_time);
 
 #endif

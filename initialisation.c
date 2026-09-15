@@ -6,11 +6,12 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 09:59:06 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 01:04:51 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 12:34:10 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "codexion.h"
+#include "free_memory.h"
 
 t_simulation	*ft_init_simulation(t_data *data)
 {
@@ -37,7 +38,7 @@ t_simulation	*ft_init_simulation(t_data *data)
 		have_issue = 1;
 	}
 	if (have_issue)
-		return (free_simulation(&simulation));
+		ft_free_simulation_issues(&simulation);
 	return (simulation);
 }
 
@@ -77,6 +78,7 @@ int	ft_init_dongles(t_simulation *simulation)
 	while (iterator < n_coders)
 	{
 		simulation->dongles[iterator].is_available = 1;
+		simulation->dongles[iterator].availability_time = 0;
 		if (pthread_mutex_init(&simulation->dongles[iterator].mutex, NULL))
 			return (1);
 		if (pthread_cond_init(&simulation->dongles[iterator].cond, NULL))

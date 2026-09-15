@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 21:46:12 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 00:17:46 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 12:30:19 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,11 @@ void	ft_free_simulation(t_simulation *simulation)
     ft_free_dongle(simulation->dongles, n_coder);
     free(simulation->dongles);
     free(simulation);
+}
+
+void    *ft_free_simulation_issues(t_simulation **simulation)
+{
+    free(*simulation);
+    *simulation = NULL;
+    return (NULL);
 }
