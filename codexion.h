@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 13:18:01 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 13:25:31 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_simulation
 	t_coder			*coders;
 	int				is_simulation_stopped;
 	long			simulation_start_time;
+	long			queue_order;
 	pthread_t		monitor_thread;
 	pthread_mutex_t	simulation_stop_mutex;
 	pthread_mutex_t	simulation_log_mutex;
@@ -107,5 +108,6 @@ int				ft_request_before(t_queues *a, t_queues *b);
 void			ft_heap_push(t_dongle *dongle, t_queues request);
 void			ft_heap_pop(t_dongle *dongle);
 t_queues		*ft_heap_peek(t_dongle *dongle);
+t_queues		ft_create_queue(t_coder *coder, int order);
 
 #endif
