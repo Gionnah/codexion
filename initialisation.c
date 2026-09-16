@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
+/*   By: hanitriniala <hanitriniala@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 09:59:06 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 13:28:38 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 22:08:43 by hanitrinial      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_simulation	*ft_init_simulation(t_data *data)
 	simulation->data = data;
 	simulation->is_simulation_stopped = 0;
 	simulation->queue_order = 0;
+	pthread_mutex_init(&simulation->scheduler_mutex, NULL);
+	pthread_cond_init(&simulation->scheduler_cond, NULL);
 	if (pthread_mutex_init(&simulation->simulation_state_mutex, NULL))
 		have_issue = 1;
 	if (pthread_mutex_init(&simulation->simulation_stop_mutex, NULL))

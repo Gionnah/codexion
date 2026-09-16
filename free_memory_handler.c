@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_memory_handler.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
+/*   By: hanitriniala <hanitriniala@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 21:46:12 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 13:28:15 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 22:09:54 by hanitrinial      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void    *ft_free_simulation_issues(t_simulation **simulation)
 {
     pthread_mutex_destroy(&(*simulation)->simulation_state_mutex);
     pthread_mutex_destroy(&(*simulation)->simulation_stop_mutex);
+    pthread_mutex_destroy(&(*simulation)->scheduler_mutex);
+    pthread_cond_destroy(&(*simulation)->scheduler_cond);
     free(*simulation);
     *simulation = NULL;
     return (NULL);

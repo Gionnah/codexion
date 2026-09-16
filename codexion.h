@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   codexion.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
+/*   By: hanitriniala <hanitriniala@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 13:25:31 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/15 22:07:29 by hanitrinial      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ typedef struct s_simulation
 	int				is_simulation_stopped;
 	long			simulation_start_time;
 	long			queue_order;
+	pthread_mutex_t	scheduler_mutex;
+	pthread_cond_t	scheduler_cond;
 	pthread_t		monitor_thread;
 	pthread_mutex_t	simulation_stop_mutex;
 	pthread_mutex_t	simulation_log_mutex;
@@ -109,5 +111,8 @@ void			ft_heap_push(t_dongle *dongle, t_queues request);
 void			ft_heap_pop(t_dongle *dongle);
 t_queues		*ft_heap_peek(t_dongle *dongle);
 t_queues		ft_create_queue(t_coder *coder, int order);
+int				ft_request_dongle(t_coder *coder, int index);
+int				ft_get_queue_order(t_simulation *simulation);
+int				ft_is_first_request(t_dongle *dongle, t_coder *coder);
 
 #endif
