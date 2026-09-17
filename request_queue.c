@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 19:06:29 by hanitrinial       #+#    #+#             */
-/*   Updated: 2026/09/17 20:11:14 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 20:37:10 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ void	ft_add_request(t_coder *coder, t_queues *request)
 	t_simulation	*simulation;
 
 	simulation = coder->simulation;
-	printf("coder %d -> left %d right %d order %d\n",
-    coder->id,
-    coder->left_dongle,
-    coder->right_dongle,
-    request->order);
 	ft_heap_push(&simulation->dongles[coder->left_dongle], *request);
 	if (coder->left_dongle != coder->right_dongle)
 		ft_heap_push(&simulation->dongles[coder->right_dongle], *request);

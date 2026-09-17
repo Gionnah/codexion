@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 23:16:32 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 20:07:29 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 20:32:10 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_release_dongle(t_coder *coder)
 	pthread_mutex_unlock(&simulation->scheduler_mutex);
 }
 
-void	ft_acquire_dongle(t_coder *coder)
+int	ft_acquire_dongle(t_coder *coder)
 {
 	t_simulation	*simulation;
 	t_queues		request;
@@ -40,7 +40,7 @@ void	ft_acquire_dongle(t_coder *coder)
 	request = ft_create_queue(coder, ft_get_queue_order(simulation));
 	pthread_mutex_lock(&simulation->scheduler_mutex);
 	ft_add_request(coder, &request);
-	while (!ft_is_simulation_stopped(simulation)
+	while (!simulation->is_simulation_stopped
 		&& !ft_can_acquire_both(coder))
 	{
 		ft_update_dongles(simulation);
@@ -51,13 +51,14 @@ void	ft_acquire_dongle(t_coder *coder)
 		pthread_cond_timedwait(&simulation->scheduler_cond,
 			&simulation->scheduler_mutex, &timeout);
 	}
-	if (ft_is_simulation_stopped(simulation))
+	if (simulation->is_simulation_stopped)
 	{
 		pthread_mutex_unlock(&simulation->scheduler_mutex);
-		return ;
+		return (0);
 	}
 	simulation->dongles[coder->left_dongle].is_available = 0;
 	simulation->dongles[coder->right_dongle].is_available = 0;
 	ft_remove_request(coder);
 	pthread_mutex_unlock(&simulation->scheduler_mutex);
+	return (1);
 }

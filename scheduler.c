@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 13:21:04 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 20:11:58 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 20:36:06 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,6 @@ int	ft_can_acquire_both(t_coder *coder)
 	simulation = coder->simulation;
 	left = &simulation->dongles[coder->left_dongle];
 	right = &simulation->dongles[coder->right_dongle];
-	printf("coder %d: left=%d right=%d\n",
-    coder->id,
-    ft_is_first_request(left, coder),
-    ft_is_first_request(right, coder));
 	if (!ft_is_first_request(left, coder))
 		return (0);
 	if (!ft_is_first_request(right, coder))

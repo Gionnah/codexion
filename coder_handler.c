@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:46:11 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 19:09:13 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 20:25:01 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,8 @@ void	*ft_coder_routine(void *arg)
 	coder = (t_coder *)arg;
 	while (!ft_is_simulation_stopped(coder->simulation))
 	{
-		ft_acquire_dongle(coder);
-		if (ft_is_simulation_stopped(coder->simulation))
-		{
-			ft_release_dongle(coder);
+		if (!ft_acquire_dongle(coder))
 			break ;
-		}
 		ft_compile(coder);
 		ft_release_dongle(coder);
 		ft_debug(coder);

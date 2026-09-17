@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 20:04:40 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 20:23:43 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int				ft_create_coder_threads(t_simulation *simulation);
 int				ft_join_coder_threads(t_simulation *simulation);
 void			*ft_coder_routine(void *arg);
 void			ft_release_dongle(t_coder *coder);
-void			ft_acquire_dongle(t_coder *coder);
+int				ft_acquire_dongle(t_coder *coder);
 void			ft_compile(t_coder *coder);
 void			ft_debug(t_coder *coder);
 void			ft_refactor(t_coder *coder);
