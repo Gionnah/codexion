@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 00:38:00 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 00:44:16 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 20:47:36 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 static int	ft_coder_burned_out(t_coder *coder, long now)
 {
-	long	start;
-	long	deadline;
+	t_simulation	*simulation;
+	long			start;
+	long			deadline;
 
+	simulation = coder->simulation;
+	pthread_mutex_lock(&simulation->simulation_state_mutex);
 	start = coder->last_compile_start;
+	pthread_mutex_unlock(&simulation->simulation_state_mutex);
 	if (start == 0)
-		start = coder->simulation->simulation_start_time;
-	deadline = start + coder->simulation->data->time_to_burnout;
+		start = simulation->simulation_start_time;
+	deadline = start + simulation->data->time_to_burnout;
 	return (now >= deadline);
 }
 
