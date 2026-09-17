@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 13:21:04 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 21:35:05 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 22:32:30 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 t_queues	ft_create_queue(t_coder *coder, int order)
 {
-	t_queues	queue;
+	t_queues		queue;
+	t_simulation	*simulation;
 
+	simulation = coder->simulation;
+	pthread_mutex_lock(&simulation->simulation_state_mutex);
+	queue.priority = coder->last_compile_start
+		+ simulation->data->time_to_burnout;
+	pthread_mutex_unlock(&simulation->simulation_state_mutex);
 	queue.coder = coder;
 	queue.order = order;
-	queue.priority = coder->last_compile_start
-		+ coder->simulation->data->time_to_burnout;
 	return (queue);
 }
 

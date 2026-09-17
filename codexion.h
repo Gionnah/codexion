@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 21:30:56 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 22:38:32 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,7 @@ void			ft_add_request(t_coder *coder, t_queues *request);
 void			ft_remove_request(t_coder *coder);
 void			ft_update_dongles(t_simulation *simulation);
 void			ft_log_state(t_coder *coder, char *state);
+int				ft_init_scheduler(t_simulation *simulation);
+int				ft_init_mutexes(t_simulation *simulation);
 
 #endif

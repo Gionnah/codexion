@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:59:57 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/14 12:46:12 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 22:30:18 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,20 @@
 
 int	main(int argc, char **argv)
 {
-    t_data *args;
-    t_simulation *simulation;
-    
+	t_data			*args;
+	t_simulation	*simulation;
+
 	if (!ft_is_valid_args(argc, ++argv))
 	{
 		write(2, "ERROR INVALID ARGUMENTS.\n", 26);
 		return (1);
 	}
-    args = ft_get_arg_value(argv);
+	args = ft_get_arg_value(argv);
+	if (!args)
+		return (1);
+	simulation = NULL;
 	ft_start_simulation(&simulation, args);
 	ft_free_simulation(simulation);
-    free(args);
+	free(args);
 	return (0);
 }
