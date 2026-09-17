@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanitriniala <hanitriniala@student.42.f    +#+  +:+       +#+        */
+/*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 09:59:06 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 22:08:43 by hanitrinial      ###   ########.fr       */
+/*   Updated: 2026/09/17 19:09:10 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

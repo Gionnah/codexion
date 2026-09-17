@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   codexion.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanitriniala <hanitriniala@student.42.f    +#+  +:+       +#+        */
+/*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 22:07:29 by hanitrinial      ###   ########.fr       */
+/*   Updated: 2026/09/17 20:04:40 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,11 @@ void			ft_heap_push(t_dongle *dongle, t_queues request);
 void			ft_heap_pop(t_dongle *dongle);
 t_queues		*ft_heap_peek(t_dongle *dongle);
 t_queues		ft_create_queue(t_coder *coder, int order);
-int				ft_request_dongle(t_coder *coder, int index);
 int				ft_get_queue_order(t_simulation *simulation);
 int				ft_is_first_request(t_dongle *dongle, t_coder *coder);
+int				ft_can_acquire_both(t_coder *coder);
+void			ft_add_request(t_coder *coder, t_queues *request);
+void			ft_remove_request(t_coder *coder);
+void			ft_update_dongles(t_simulation *simulation);
 
 #endif
