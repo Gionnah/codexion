@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 23:16:32 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 21:32:33 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:42:09 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	ft_acquire_dongle(t_coder *coder)
 	simulation->dongles[coder->right_dongle].is_available = 0;
 	ft_remove_request(coder);
 	ft_log_state(coder, "has taken a dongle");
-	ft_log_state(coder, "has taken a dongle");
+	if (coder->left_dongle != coder->right_dongle)
+		ft_log_state(coder, "has taken a dongle");
 	pthread_mutex_unlock(&simulation->scheduler_mutex);
 	return (1);
 }
