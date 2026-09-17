@@ -6,24 +6,24 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 21:46:12 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 22:25:33 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 22:51:03 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../free_memory.h"
 
-void    ft_free_dongle(t_dongle *dongle, int n_coder)
+void	ft_free_dongle(t_dongle *dongle, int n_coder)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < n_coder)
-    {
-        free(dongle[i].queue);
+	i = 0;
+	while (i < n_coder)
+	{
+		free(dongle[i].queue);
 		pthread_mutex_destroy(&dongle[i].mutex);
 		pthread_cond_destroy(&dongle[i].cond);
-        i++;
-    }
+		i++;
+	}
 }
 
 void	ft_free_simulation(t_simulation *simulation)

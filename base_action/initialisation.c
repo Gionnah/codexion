@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 09:59:06 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 22:21:23 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 22:49:03 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	ft_init_dongles(t_simulation *simulation)
 		if (ft_init_dongle(&simulation->dongles[i], n_cdr))
 		{
 			ft_free_dongles_init(simulation->dongles, i);
-			return (1);	
+			return (1);
 		}
 		i++;
 	}
