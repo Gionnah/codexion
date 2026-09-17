@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dongle_handler_utils.c                             :+:      :+:    :+:   */
+/*   log_state.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/15 11:57:50 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 12:11:42 by mvelonja         ###   ########.fr       */
+/*   Created: 2026/09/17 21:18:44 by mvelonja          #+#    #+#             */
+/*   Updated: 2026/09/17 21:35:50 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "codexion.h"
+#include "../codexion.h"
 
-struct timespec	ft_get_timeout(long availability_time)
+void	ft_log_state(t_coder *coder, char *state)
 {
-    struct timespec  timeout;
+	t_simulation	*simulation;
+	long			time;
 
-    timeout.tv_sec = availability_time / 1000;
-    timeout.tv_nsec = (availability_time % 1000) * 1000000;
-    return (timeout);
-}
-
-int ft_get_min(int a, int b)
-{
-    if (a < b)
-        return (a);
-    return (b);
-}
-
-int ft_get_max(int a, int b)
-{
-    if (a > b)
-        return (a);
-    return (b);
+	simulation = coder->simulation;
+	time = ft_get_current_time_in_ms()
+		- simulation->simulation_start_time;
+	pthread_mutex_lock(&simulation->simulation_log_mutex);
+	fprintf(stderr, "%ld %d %s\n", time, coder->id, state);
+	pthread_mutex_unlock(&simulation->simulation_log_mutex);
 }

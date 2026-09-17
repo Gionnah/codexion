@@ -6,9 +6,11 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 20:45:52 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/14 12:46:35 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:33:57 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../codexion.h"
 
 int	ft_is_integer_value(char *s)
 {

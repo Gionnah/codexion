@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   monitor.c                                          :+:      :+:    :+:   */
+/*   monitoring.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 00:38:00 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 20:47:36 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:35:34 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "codexion.h"
+#include "../codexion.h"
 
 static int	ft_coder_burned_out(t_coder *coder, long now)
 {
@@ -44,8 +44,7 @@ void	*ft_monitor_routine(void *arg)
 			if (ft_coder_burned_out(&simulation->coders[i], now))
 			{
 				ft_set_simulation_stopped(simulation);
-				fprintf(stderr, "coder %d burned out\n",
-					simulation->coders[i].id);
+				ft_log_state(&simulation->coders[i], "burned out");
 				break ;
 			}
 			i++;

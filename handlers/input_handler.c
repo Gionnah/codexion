@@ -6,11 +6,11 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:43:32 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/14 12:46:32 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:32:54 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "codexion.h"
+#include "../codexion.h"
 
 int	ft_is_valid_args(int ac, char **av)
 {

@@ -6,12 +6,12 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 09:59:06 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 19:09:10 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:35:59 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "codexion.h"
-#include "free_memory.h"
+#include "../codexion.h"
+#include "../free_memory.h"
 
 t_simulation	*ft_init_simulation(t_data *data)
 {

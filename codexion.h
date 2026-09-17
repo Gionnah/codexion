@@ -6,7 +6,7 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 22:47:27 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 20:23:43 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:30:56 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ typedef struct s_data
 	char	*scheduler;
 }	t_data;
 
-struct	s_simulation;
-typedef struct	s_queues t_queues;
+struct						s_simulation;
+typedef struct s_queues		t_queues;
+typedef struct s_coder		t_coder;
 
 typedef struct s_dongle
 {
@@ -71,8 +72,6 @@ typedef struct s_simulation
 	pthread_mutex_t	simulation_log_mutex;
 	pthread_mutex_t	simulation_state_mutex;
 }	t_simulation;
-
-typedef struct s_coder t_coder;
 
 typedef struct s_queues
 {
@@ -117,5 +116,6 @@ int				ft_can_acquire_both(t_coder *coder);
 void			ft_add_request(t_coder *coder, t_queues *request);
 void			ft_remove_request(t_coder *coder);
 void			ft_update_dongles(t_simulation *simulation);
+void			ft_log_state(t_coder *coder, char *state);
 
 #endif

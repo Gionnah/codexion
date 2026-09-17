@@ -6,11 +6,11 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 13:21:04 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 20:36:06 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:35:05 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "codexion.h"
+#include "../codexion.h"
 
 t_queues	ft_create_queue(t_coder *coder, int order)
 {

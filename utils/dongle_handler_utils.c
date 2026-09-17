@@ -6,11 +6,11 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 11:57:50 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 12:11:42 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:33:12 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "codexion.h"
+#include "../codexion.h"
 
 struct timespec	ft_get_timeout(long availability_time)
 {

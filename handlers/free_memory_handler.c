@@ -6,11 +6,11 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 21:46:12 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/17 19:09:22 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:32:44 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "free_memory.h"
+#include "../free_memory.h"
 
 void    ft_free_dongle(t_dongle *dongle, int n_coder)
 {

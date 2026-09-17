@@ -6,11 +6,11 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 19:06:29 by hanitrinial       #+#    #+#             */
-/*   Updated: 2026/09/17 20:37:10 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:35:11 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "codexion.h"
+#include "../codexion.h"
 
 void	ft_add_request(t_coder *coder, t_queues *request)
 {

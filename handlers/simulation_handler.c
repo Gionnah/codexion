@@ -6,11 +6,11 @@
 /*   By: mvelonja <mvelonja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 21:30:50 by mvelonja          #+#    #+#             */
-/*   Updated: 2026/09/15 00:47:35 by mvelonja         ###   ########.fr       */
+/*   Updated: 2026/09/17 21:32:58 by mvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "codexion.h"
+#include "../codexion.h"
 
 int ft_start_simulation(t_simulation **simulation, t_data *args)
 {
